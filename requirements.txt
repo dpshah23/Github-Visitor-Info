@@ -5,3 +5,4 @@ flask_sqlalchemy
 pycountry
 python-dotenv
 pymysql
+gunicorn
