@@ -39,8 +39,9 @@ def track(id):
             ip_address = request.remote_addr
             print(ip_address)
             location_info = requests.get(f"https://ipinfo.io/{ip_address}/json").json()
+            print(location_info)
             if location_info.get('bogon'):
-                return "", 400
+                return ""
             
             country_code = location_info.get('country')
             state = location_info.get('region')
