@@ -36,7 +36,11 @@ def track(id):
             if not user:
                 return 'Invalid Link', 404
             
-            ip_address = request.headers.get('X-Forwarded-For') or request.remote_addr
+            x_forwarded_for = request.headers.get('X-Forwarded-For')
+            if x_forwarded_for:
+                ip_address = x_forwarded_for.split(',')[0].strip()  
+            else:
+                ip_address = request.remote_addr
             print(ip_address)
             location_info = requests.get(f"https://ipinfo.io/{ip_address}/json").json()
             print(location_info)
