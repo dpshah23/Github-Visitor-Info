@@ -40,7 +40,7 @@ def track(id):
             print(ip_address)
             location_info = requests.get(f"https://ipinfo.io/{ip_address}/json").json()
             if location_info.get('bogon'):
-                return "Private IP address", 400
+                return "", 400
             
             country_code = location_info.get('country')
             state = location_info.get('region')
@@ -60,14 +60,10 @@ def track(id):
             connection.commit()
 
             print(country_name, city, state)
-            return jsonify({
-                'country': country_name,
-                'city': city,
-                'state': state
-            }), 200
+            return '', 200
     except Exception as e:
         print(f"Error: {e}")
-        return "An error occurred", 500
+        return "", 500
     finally:
         connection.close()
 
