@@ -6,7 +6,10 @@ import sqlalchemy
 
 app=Flask(__name__)
 
-@app.route('/api/v1/track/<id>/',method=['POST'])
+@app.route('/api/v1/track/<id>/',methods=['POST','GET'])
 def track(id):
-    pass
+    return "Tracked"
+
+if __name__=="__main__":
+    app.run(host='0.0.0.0', port=5000)
    
