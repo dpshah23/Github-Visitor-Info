@@ -37,13 +37,10 @@ def track(id):
                 return 'Invalid Link', 404
             
             
-            ip_address = request.headers.get('True-Client-IP')
-            print("Real IP : ",ip_address)
-
-            if not ip_address:
-                x_forwarded_for = request.headers.get('X-Forwarded-For')
-                print("Forwarded : ",x_forwarded_for)
-            print(x_forwarded_for)
+           
+            x_forwarded_for = request.headers.get('X-Forwarded-For')
+            print("Forwarded : ",x_forwarded_for)
+            
             if x_forwarded_for:
                 # ip_address = x_forwarded_for.split(',')[0].strip()  
                 ip_address = x_forwarded_for.split(',')[0].strip()  
