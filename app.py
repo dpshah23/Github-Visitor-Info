@@ -37,7 +37,9 @@ def track(id):
                 return 'Invalid Link', 404
             
             x_forwarded_for = request.headers.get('X-Forwarded-For')
+            print(x_forwarded_for)
             if x_forwarded_for:
+                # ip_address = x_forwarded_for.split(',')[0].strip()  
                 ip_address = x_forwarded_for.split(',')[0].strip()  
             else:
                 ip_address = request.remote_addr
