@@ -38,7 +38,7 @@ Welcome to the Flask API for GitHub Insights! This repository provides the backe
 
 4. **Run the Application**:
    ```bash
-   flask run
+   python app.py
    ```
 
 ## Docker Deployment
